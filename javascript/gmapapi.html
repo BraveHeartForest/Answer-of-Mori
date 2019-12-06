@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=ja"></script>
+    <!--上の行でGoogleMapsAPI3.0を使用することを宣言。src="http://maps.google.com/maps/api/js?sensor=真偽値&language=言語"
+-->
+    <script type="text/javascript">
+    var counter = 0;
+    var map = null;
+    var geocoder = null;
+
+        function init() {
+            geocoder = new google.maps.Geocoder();
+            var element = document.getElementById("map");
+            //new google.maps.LatLng( 経度 , 緯度 )
+            var latlng = new google.maps.LatLng(35.733702, 139.715639);
+            /*緯度と経度の情報は、Googleマップで調べることができます。地図の適当な場所を右クリックし、ポップアップしたメニューから「この場所について」を選ぶと、Googleマップの検索ワードを入力するフィールドに、緯度経度の値が出力されます。これをコピーして使えばいいのです。*/
+            var options = {
+                zoom: 20,   //マップの拡大率です。数字が大きくなるほど拡大されます。1増やすと1回拡大ボタンを押したのと同じ結果になります。最大は20程度で殆ど何を映しているのか分からない状態になる。
+                center: latlng, //地図の中心位置を設定します。入力必須です。今回は先に設定してあるLatLngオブジェクトを指定します。
+                mapTypeId: google.maps.MapTypeId.SATELLITE,   //表示する地図の種類を指定します。これは、google.maps.MapTypeIdに用意されている値を使います。「ROADMAP」で通常の地図、「SATELLITE」で衛星写真になります。とりあえず、この２つだけ知っていればOKでしょう。
+
+
+                scaleControl: true, //マップの下に表示される、スケール（地図上の距離を表示したものさしのようなもの）を真偽値でON/OFFする。
+                navigationControl: true,    //拡大・縮小・移動などの操作をまとめたナビゲーション・コントロール（マップの左側に表示されるコントロールを真偽値で表示をON/OFFにする。
+                mapTypeControl: true,    //地図のタイプを切り替えるコントロール（右上に表示されるもの）を真偽値で表示をON/OFFにする。
+
+                //配列にstyleを用意して表示スタイルを変更
+                navigationControlOptions: {
+                    style: google.maps.NavigationControlStyle.ZOOM_PAN
+                    /*
+                    google.maps.NavigationControlStyle.SMALL ――横長のバー（デフォルトのもの）
+                    google.maps.NavigationControlStyle.ZOOM_PAN ――ドロップダウンメニュー
+                    google.maps.NavigationControlStyle.ANDROID ――Android用
+                    */
+                },
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                }
+            };
+            map = new google.maps.Map(element, options);
+            //new google.maps.Map( 表示するDOMエレメント , オプション設定の配列 )
+            //マップ作成オブジェクトです。
+
+            google.maps.event.addListener(map,"click",doAction);
+            //google.maps.event.addListener( オブジェクト , "イベント名" , 呼び出す関数 );
+        }
+
+        function doAction(event) {
+            //event内部にLatLngオブジェクトが保管されているので改めて定義し直す必要がない。
+            var options = {
+                position: event.latlng, //表示位置を示すもの。LatLngオブジェクトで指定します。
+                map: map,   //マーカーを表示するMapオブジェクトを指定する。
+                title: ++counter+"つ目",    //「マーカー上にマウスを重ねたとき」表示されるテキスト
+            };
+            var marker = new google.maps.Marker(options);
+            //new google.maps.Marker( オプション設定の配列 )
+
+            var infoopt = { content: "クリックしたよ!"};
+            //配列に用意する項目としては、「content」だけ覚えておけばよいでしょう。これは、ウインドウに表示する内容です。テキストでもいいですし、HTMLのコードとして用意することもできます。
+            var info = new google.maps.InfoWindow(infoopt);
+            //new google.maps.InfoWindow( オプション設定の配列 )
+
+            //これでInfoWindowは作成されますが、実はこのままでは表示はされません。作成後、「open」というメソッドを呼び出してやることで、ウインドウが表示されます。これは以下のように呼び出します。
+
+            //[InfoWindow].open( 表示するMap , 表示するオブジェクト )
+            info.open(map,marker);
+        }
+
+        function doFind() {
+            var input = document.getElementById("address");
+            var options = {
+                address : input.value,
+                language: 'jp',
+                region: 'jp',
+            };
+            var func = function(results,satus) {
+                if(status == google.maps.GeocoderStatus.OK) {
+                    var p = results[0].geometry.location;
+                    map.setCenter(p);
+                    var opts = {
+                        position: p,
+                        map: map,
+                        title: results[0].formatted_address,
+                    };
+                    var marker = new google.maps.Marker(opts);
+                    var infoopt = {
+                        content: results[0].formatted_address
+                    };
+                    var info = new google.maps.InfoWindow(infoopt);
+                    info.open(map,marker);
+                }
+            };
+            geocoder.geocode(options,func);
+        }
+    </script>
+    <title>GoogleMapAPI</title>
+</head>
+
+<body onload="init();">
+    <h1>Map Sample</h1>
+    <input type="text" id="address">
+    <input type="button" value="検索" onclick="doFind();">
+    <div id="map" style="width:400px; height:400px;"></div>
+    <p>Googleマップを使っていて注意しなければいけないのは、「位置は、ブラウザ内の情報ではなく、マップに表示されている地図上の情報である」という点です。例えば、「クリックした位置に○○する」という場合、その「クリックした位置」とは、mouseX,mouseYといった「ブラウザ内のマウスの位置」ではありません。それは、「Mapに表示されている地図上の位置」でなければいけないのです。この点、勘違いしないようにしてください。</p>
+
+    <h3>■ジオコーディングと逆ジオコーディング</h3>
+    <p>Googleマップには「ジオコーディング（Geo Coding）」という機能があります。これは、住所などの情報からその位置（経度・緯度）を検索する機能です。また、この反対に「逆ジオコーディング」（位置の情報からその住所を検索する）という機能もあります。これらは、まとめて「google.maps.Geocoder」というオブジェクトとして用意されています。この中に用意されている「geocode」というメソッドにより、ジオコーディングが行われます。</p>
+    <h3>■ジオコーディングと逆ジオコーディング</h3>
+    <p>Googleマップには「ジオコーディング（Geo Coding）」という機能があります。これは、住所などの情報からその位置（経度・緯度）を検索する機能です。また、この反対に「逆ジオコーディング」（位置の情報からその住所を検索する）という機能もあります。これらは、まとめて「google.maps.Geocoder」というオブジェクトとして用意されています。この中に用意されている「geocode」というメソッドにより、ジオコーディングが行われます。</p>
+    <p>geocodeメソッドは、第１引数に必要な設定情報をまとめた配列を、第２引数に処理完了時に呼び出されるコールバック関数をそれぞれ渡します。geocodeは、JavaScriptのAjax通信によりGoogleサーバーに呼び出しをかけ、結果を取得します。このため、検索結果はコールバック関数によって処理する必要があります。</p>
+    <p>まず、オプション設定の配列について説明しておきましょう。これは以下のような項目が用意されます。</p>
+    <ul>
+        <li>address: 住所を示すテキスト。ジオコーディング時には必須。</li>
+        <li>latLng: 位置を示すテキスト。逆ジオコーディング時には必須。</li>
+        <li>language: 使用言語を示す値。</li>
+        <li>region: 検索するエリア（国・地域）を示す値。</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>
+		ajax_test
+	</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+	<h1>escape処理はされていません。</h1>
+	<form id="form_1" method="POST" accept-charset="utf-8" return false>
+		<p>名前：<input type="text" name="userid" id="userid"></p>
+		<p>パスワード<input type="password" name="password" id="password"></p>
+	</form>
+
+	<button id="ajax">ajax</button>
+	<div class="result"></div>
+	<h4>ajax2.htmlの内容</h4>
+	<pre>
+&lt;form id=&quot;form_1&quot; method=&quot;POST&quot; accept-charset=&quot;utf-8&quot; return false&gt;
+&lt;p&gt;名前：&lt;input type=&quot;text&quot; name=&quot;userid&quot; id=&quot;userid&quot;&gt;&lt;/p&gt;
+&lt;p&gt;パスワード&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+
+&lt;button id=&quot;ajax&quot;&gt;ajax&lt;/button&gt;
+&lt;div class=&quot;result&quot;&gt;&lt;/div&gt;
+	</pre>
+	<h4>request.phpの内容</h4>
+	<pre>
+&lt;?php
+header('Content-type: text/plain; charset=UTF-8');
+if(isset($_POST['userid'])&& isset($_POST['password'])){
+	$id=$_POST['userid'];
+	$pas=$_POST['password'];
+	$str=&quot;AJAX REQUEST SUCCESS\nuserid:&quot;.$id.&quot;\npassword:&quot;.$pas.&quot;\n&quot;;
+	$result=nl2br($str);
+	print $result;
+}else{
+	print &quot;FAIL TO AJAX REQUEST&quot;;
+}
+	</pre>
+	<h4>scriptの内容</h4>
+	<pre>
+&lt;script&gt;
+$(function () {
+	//Ajax Button Click
+	$('#ajax').on('click', function () {
+		$.ajax({
+			url: './request.php',
+			type: 'POST',	//<b>HTTPのリクエストメソッドを指定。</b>
+			data: {
+				'userid': $('#userid').val(),
+				'password': $('#password').val()
+			}
+		})
+			// Ajaxリクエストが成功した時に発動。
+			.done((data) =&gt; {
+				$('.result').html(data);
+				console.log(data);
+			})
+			//Ajaxリクエストが失敗した時に発動。
+			.fail((data) =&gt; {
+				$('.result').html(data);
+				console.log(data);
+			})
+			//Ajaxリクエストがどうなろうが発動
+			.always((data) =&gt; {
+			});
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+<script>
+	$(function () {
+		//Ajax Button Click
+		$('#ajax').click( function () {
+			$.ajax({
+				url: './request.php',
+				type: 'POST',	//HTTPのリクエストメソッドを指定。
+				data: {
+					'userid': $('#userid').val(),
+					'password': $('#password').val()
+				}
+			})
+				// Ajaxリクエストが成功した時に発動。
+				.done((data) => {
+					$('.result').html(data);
+					console.log(data);
+				})
+				//Ajaxリクエストが失敗した時に発動。
+				.fail((data) => {
+					$('.result').html(data);
+					console.log(data);
+				})
+				//Ajaxリクエストがどうなろうが発動
+				.always((data) => {
+					alert("ボタンを押したことだけは確実。");
+				});
+		});
+	});
+</script>
+
+</html>

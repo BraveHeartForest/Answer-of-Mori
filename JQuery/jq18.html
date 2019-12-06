@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（画像編)
+	</title>
+	<script src="./js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+	<ul>
+		<li><a href="./images/a822b236a2e6fe749ac4b470dcc18e90.jpg">点心</a></li>
+		<li><a href="./images/message_otsukaresamadesu.png">お疲れ様です。</a></li>
+		<li><a href="./images/autumn-20170729173927.jpg">秋</a></li>
+		<li><a href="./images/a95b3ee00832870900ec470d1b83ec53.jpg">ねこですよろしくおねがいします。</a></li>
+	</ul>
+	<p><img src="./images/close.png" alt="Close"></p>
+	<h1>jqueryはダウンロードしたほうが結果的に扱いやすいです。</h1>
+	<pre>
+&lt;script&gt;
+$(function () {
+	$("a").click(function () {
+		$("img").attr("src", $(this).attr("href")).attr("alt", $(this).text());
+		return false;	//これをつけないと画面上での変化を確認できない（画像のページに移動してしまうため）
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+<script>
+	$(function () {
+		$("a").click(function () {
+			$("img").attr("src", $(this).attr("href")).attr("alt", $(this).text());
+			return false;	//これをつけないと画面上での変化を確認できない（画像のページに移動してしまうため）
+		});
+	});
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		JQueryでアニメーション
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<script>
+	$(function () {
+		$("#anime").click(function () {
+			$("#anime>p").animate({
+				"width": "400px",
+				"fontSize": "24px",
+				"opacity": "1.0",
+			});
+		});
+	});
+</script>
+
+<body>
+	<h1>Test.</h1>
+	<div id="anime" style="background-color:aliceblue">
+		<p>アニメーション--クリックで変化</p>
+	</div>
+	<pre>
+&lt;script&gt;
+$(function () {
+	$("#anime").click(function () {
+		$("#anime&gt;p").animate({
+			"width": "400px",
+			"fontSize": "24px",
+			"opacity": "1.0",
+		});
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+</html>

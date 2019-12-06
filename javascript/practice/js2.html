@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<input type="button" value="Click Me!" onclick="alert('ボタンがクリックされました。')">
+		<br>
+		<input type="button" value="Mouse Over!" onmouseout="this.value='Mouse Out!'">
+		<!-- onmouseout はマウスが一度乗ってから離れた後に動作する。thisはこれ自体を指し示す。-->
+		<br>
+		<input type="button" value="ボタン" onmousedown="this.value='マウスダウン'" onmouseup="this.value='マウスアップ'">
+		<br>
+		<!-- onmousedownは押されている間、oumouseupは押された後で押されていない間の動作-->
+		<input type="button" value="ボタン" onclick="this.value='クリックしやがったな！'" ondblclick="this.value='ダブルクリックまでしやがったな！'">
+		<br>
+		
+
+	</body>
+</html>

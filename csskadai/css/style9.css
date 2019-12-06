@@ -1,0 +1,51 @@
+﻿@charaset "utf-8";
+
+/*cssではセルの結合は設定できない？らしいので、htmlの方でrowspan,colspanを用いて行います。*/
+
+
+table{
+	border:black solid 1px;/*表全体を囲む枠線の色：black,一本線：solid,太さ:1pxです*/
+	border-collapse:collapse;/*セルとセルの間の空白を破壊します。border-collapse:"collapse"まで書かないと意味がないので注意*/
+}
+
+th{
+	border:black solid 1px;/*ここは下のtdに倣って作成しているがth,tdをまとめて設定する方法はあるか？　またそれがあるならば、そちらの方が効率的なのだろうか。疑問点をここに記す。*/
+	color:white;/*文字色*/
+	background-color:steelblue;/*背景色*/
+	border-collapse:collapse;/*セルとセルの間の空白を破壊します。border-collapse:"collapse"まで書かないと意味がないので注意*/
+
+}
+
+td{
+	border-collapse:collapse;/*セルとセルの間の空白を破壊します。border-collapse:"collapse"まで書かないと意味がないので注意*/
+	border:black solid 1px;/*個々のセルを囲む枠線の色：black,一本線:solid,太さ:1px*/
+}
+
+
+
+/*
+以下を参考にして作成する。
+
+<style>
+td{
+	border	:	solid 1px black;
+	text-align	:	left;
+	border-collapse:collapse;
+}
+
+table{
+	border-style	:	solid 1px black;
+	border-collapse:collapse;
+}
+
+th{
+	border	:	solid 1px black;
+	color	:	white;
+	background-color	:	steelblue;
+	text-align	:	center;
+	border-collapse:collapse;
+}
+
+
+</style>
+*/

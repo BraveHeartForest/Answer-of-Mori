@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		メールアドレス：
+		<input type="text" id="#mail" oncopy="alert('この泥棒猫！！'); return false" oncut="alert('カットをカット');return false"><br>
+		メールアドレス（確認用):
+		<input type="text" onpaste="alert('ペースト状にしてやろうか！'); return false"><br>
+		oncopyでcopyされたときの対応、oncutでカット時の対応、onpasteでpaste時の対応がされています。body全体を禁止すると思わぬところで使い勝手が悪くなり、ユーザーの反感を買います。<br>
+		<a href="#mail"><img src="./images/kani1.jpg" onmouseover="src='./images/kani2.jpg'" onmouseout="src='./images/kani1.jpg'" ></a>
+	</body>
+</html>

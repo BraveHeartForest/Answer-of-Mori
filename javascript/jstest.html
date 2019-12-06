@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jstest</title>
+    <script>
+        var myReferrer = document.referrer;
+        var now = new Date();
+        document.write("今日は<em>" + now.getDate() + "<\/em>日です<br \/>");
+        document.write("明日は<em>", (now.getDate() + 1), "<\/em>日です<br \/>");
+        /* writeln は文字列の末尾に改行文字（\n）が挿入されます */
+        document.write("<pre>");
+        document.writeln("一昨日は<em>" + (now.getDate() - 2) + "<\/em>日です");
+        document.writeln("昨日は<em>", (now.getDate() - 1), "<\/em>日です");
+        document.writeln("<h1>"+now+"</h1>");
+        document.writeln("1つ前に見ていたページのURL:"+myReferrer);
+        document.write("<\/pre>");
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var i=0;
+			while(i<10){
+				document.write("繰り返し"+(i+1)+"回目<br>");
+				i = i+1;
+			}
+
+			for(var j=0;j<10;j++){
+				document.write((j+1)+"回ぶり、"+j+"度目の出場<br>");
+			}
+
+			var k=0;
+			do{
+				document.write("ループ"+(k+1)+"回目の夏休み<br>")
+				k = k+1;
+			}while(k<10);
+
+			for(var l=-10;l<10;l++){
+				if(l==0){
+					document.write("0で割ることはできません。<br>")
+					l=l+1;
+					continue;
+				}
+				document.write("100÷"+l+"の答えは"+(100/l)+"です。<br>")
+			}
+
+
+		</script>
+		<h2>break;やcontinue;を使わないでスキップするにはi等に100などの数値を代入してしまう方法がある。</h2>
+	</body>
+</html>

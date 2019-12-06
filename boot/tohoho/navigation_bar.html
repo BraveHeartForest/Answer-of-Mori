@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ページタイトル</title>
+	<!--CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<!--JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--自作CSS -->
+	<style type="text/css">
+		<!--
+		/*ここに調整CSS記述*/
+		-->
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+
+		<nav class="navbar navbar-dark bg-dark">
+			<a href="#" class="navbar-brand">Navbar</a>
+		</nav>
+		<br>
+		<!--普通にナビゲーションバーを表示する。-->
+		<nav class="navbar navbar-dark bg-primary mb-2">
+			<a href="#" class="navbar-brand">Primary</a>
+		</nav>
+		<br>
+		<nav class="navbar navbar-dark bg-dark mb-2">
+			<a href="#" class="navbar-brand">Dark</a>
+		</nav>
+		<br>
+		<nav class="navbar navbar-light mb-2" style="background-color:#e3f2fd;">
+			<a href="#" class="navbar-brand">Custom</a>
+		</nav>
+		<br>
+		<!--背景色の変更-->
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-text">Text</span>
+		</nav>
+		<!--テキストの表示-->
+		<br>
+		<nav class="navbar navbar-dark bg-dark">
+			<a href="#" class="navbar-brand">
+				<img src="../image/popase.gif" width="30" height="30" alt="画">
+				Navbar
+			</a>
+		</nav>
+		<!--ブランドの表示-->
+		<nav class="navbar navbar-dark bg-dark">
+			<a href="#" class="navbar-brand">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1"
+				aria-controls="navmenu1" aria-expand="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navmenu1">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="#">Menu#1</a>
+					<a class="nav-item nav-link" href="#">Menu#2</a>
+					<a class="nav-item nav-link" href="#">Menu#3</a>
+				</div>
+			</div>
+		</nav>
+		<!--ナビゲーションメニューのはず……-->
+		<br>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+			<a href="#" class="navbar-brand">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1"
+				aria-controls="navmenu1" aria-expand="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navmenu1">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="#">Menu#1</a>
+					<a class="nav-item nav-link" href="#">Menu#2</a>
+					<a class="nav-item nav-link disabled" href="#">Menu#3</a>
+				</div>
+			</div>
+		</nav>
+		<!--ナビゲーションメニューのはず……-->
+
+
+
+
+	</div>
+</body>
+
+</html>

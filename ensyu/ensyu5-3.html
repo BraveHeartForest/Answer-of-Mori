@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transtional//EN">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>
+        演習問題5-(3)
+    </title>
+</head>
+
+<body>
+    <p><b>
+            <font size="7">商品検索</font>
+        </b></p>
+
+    <form action="" method="post">
+
+        <p>
+            商品カテゴリ<br>
+            <select name="category">
+                <option value=""></option>
+                <option value="book">書籍</option>
+                <option value="music">音楽</option>
+                <option value="house">家電</option>
+                <option value="cloth">衣料</option>
+                <option value="others">その他</option>
+            </select>
+        </p>
+
+        <p>
+            商品名<br>
+            <input type="text" name="product" value="">
+        </p>
+
+        <p>
+            商品価格<br>
+            <input type="checkbox" name="price" value="thousand">1000円未満
+            <input type="checkbox" name="price" value="miman">10000円未満
+            <input type="checkbox" name="price" value="ijou">10000円以上
+            <input type="reset" value="検索">
+        </p>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（画像編)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<ul>
+		<li><a href="./images/close.png">Close</a></li>
+		<li><a href="./images/next.png">Next</a></li>
+		<li><a href="./images/prev.png">Prev</a></li>
+		<li><a href="./images/loading.gif">Loading</a></li>
+	</ul>
+	<p><img src="./images/close.png" alt="Close"></p>
+	<pre>
+&lt;script&gt;
+$(function () {
+	$("a").click(function () {
+		$("img").attr("src", $(this).attr("href")).attr("alt", $(this).text());
+		return false;	//これをつけないと画面上での変化を確認できない（画像のページに移動してしまうため）
+		//$(this)は「イベントが発生した要素」のこと。今回は「クリックしたaタグ」のこと。
+		//imgタグにsrc="aタグのhrefの中身"とalt="aタグのtext部分"を追加。
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+<script>
+	$(function () {
+		$("a").click(function () {
+			$("img").attr("src", $(this).attr("href")).attr("alt", $(this).text());
+			return false;	//これをつけないと画面上での変化を確認できない（画像のページに移動してしまうため）
+			//$(this)は「イベントが発生した要素」のこと。今回は「クリックしたaタグ」のこと。
+			//imgタグにsrc="aタグのhrefの中身"とalt="aタグのtext部分"を追加。
+		});
+	});
+</script>
+
+</html>

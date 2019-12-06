@@ -1,0 +1,19 @@
+﻿@charaset "utf-8";
+
+h1{
+	color:white;
+	background-color:blue;
+	font-size:36px;
+	font-weight:bold;
+	text-align:center;	
+}
+
+h2{
+	font-size:30px;
+}
+
+
+div{
+	background-color:steelblue;
+	color:white;
+	width:500px;

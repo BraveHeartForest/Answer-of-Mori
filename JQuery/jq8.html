@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（画像編)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<p>テストtest</p>
+	<button>画像を変更</button>
+	<p><img src="./images/kani1.jpg" alt="カニ1"></p>
+	<pre>
+&lt;script&gt;
+$(function () {
+	$("button").click(function () {
+		$("img").attr("src", "./images/kani2.jpg").attr("alt", "カニ２")
+		//ボタンが押された場合はimgタグのsrc属性を./images/kani2.jpgに変更し、alt属性をカニ2に変更する。これはデベロッパーツールで確認できる。
+	});
+});
+/*attr(properties)
+キーと値の組み合わせからなるハッシュオブジェクトを引数に渡し、全ての要素に複数の属性を同時に設定する。
+
+これは大量の属性を設定したい場合に適した方法である。
+※もしclass属性を設定したい場合は、キーの名前は'className'である必要がある。これは、Internet Explorerでclassが予約語扱いになっているためである。もしくは、.addClass(class)/.removeClass(class)メソッドを用いること。
+*/
+&lt;/script&gt;
+	</pre>
+</body>
+
+<script>
+	$(function () {
+		$("button").click(function () {
+			$("img").attr("src", "./images/kani2.jpg").attr("alt", "カニ２")
+			//ボタンが押された場合はimgタグのsrc属性を./images/kani2.jpgに変更し、alt属性をカニ2に変更する。これはデベロッパーツールで確認できる。
+		});
+	});
+	/*attr(properties)
+キーと値の組み合わせからなるハッシュオブジェクトを引数に渡し、全ての要素に複数の属性を同時に設定する。
+
+これは大量の属性を設定したい場合に適した方法である。
+※もしclass属性を設定したい場合は、キーの名前は'className'である必要がある。これは、Internet Explorerでclassが予約語扱いになっているためである。もしくは、.addClass(class)/.removeClass(class)メソッドを用いること。
+*/
+</script>
+
+</html>

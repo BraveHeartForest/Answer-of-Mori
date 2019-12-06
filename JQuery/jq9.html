@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作(aタグ無効化)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>a要素の機能を無効化する方法です</h1>
+	<h2>click()は任意の要素を指定できますが、元々クリックされる要素であるaタグをクリックすると期待していない動作をされます。</h2>
+	<h3>回避方法1</h3>
+	<h4>javascript:void(0)で無効化します</h4>
+	<a href="javascript:void(0)">画像を変更</a>
+	<pre>
+&lt;a href="javascript:void(0)"&gt;画像を変更&lt;/a&gt;
+
+これ以外は前回のscriptと同じ。
+	</pre>
+	<p><img src="./images/kani1.jpg" alt="カニ1"></p>
+</body>
+
+<script>
+	$(function () {
+		$("button").click(function () {
+			$("img").attr("src", "./images/kani2.jpg").attr("alt", "カニ２");
+		});
+	});
+</script>
+
+</html>

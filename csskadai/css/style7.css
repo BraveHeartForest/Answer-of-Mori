@@ -1,0 +1,15 @@
+﻿@charaset "utf-8";
+
+#one{
+	font-size:36px;
+	color:black;
+	text-align:center;/*これでcssが働いている事が確認できます。*/
+}
+.demo2:hover{
+	font-style:italic;/*GoogleChromeでは斜体にならないので要注意。IEかFireFoxで確認すればよい。*/
+}
+
+.demo1:hover{
+	color:red;/*[:hover]が使えているかを確認します。*/
+}
+	

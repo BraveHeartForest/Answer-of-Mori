@@ -1,0 +1,12 @@
+﻿@charaset "utf-8";
+
+table{
+	border:black solid 2px;/*表全体を囲む枠線の色：black,一本線：solid,太さ:2pxです*/
+	width:300px;/*表全体の横幅300pxです。*/
+
+}
+
+td{
+	border:black solid 1px;/*個々のセルを囲む枠線の色：black,一本線:solid,太さ:1px*/
+	text-align:center;/*セル内の文字を水平方向中央揃え*/
+}

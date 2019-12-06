@@ -1,0 +1,13 @@
+@charset "UTF-8";
+ul {
+    display: none;
+}
+
+li {
+    list-style-position: inherit;
+    margin-bottom: 10px;
+}
+
+.num {
+    display: none;
+}

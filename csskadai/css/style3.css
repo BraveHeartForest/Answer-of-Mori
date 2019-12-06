@@ -1,0 +1,17 @@
+﻿@charaset "utf-8";
+
+h1{
+	color:white;
+	background-color:blue;
+	font-size:36px;
+	font-weight:bold;
+	text-align:center;	
+}
+
+h2{
+	font-size:30px;
+}
+
+.delete{
+	text-decoration:line-through;/*文字の上に線を引き、取り消し線に見せます。*/
+}

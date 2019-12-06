@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function times(x){
+				var y=x*2;
+				return y;
+			}
+		</script>
+		<input type="text" id="num">
+		<input type="button" value="二倍にする" onclick="alert(times(num.value))">
+		<br>
+		<p>テキストフィールドを作ってidでnumと名付けます。<br>
+		これに対してnum.valueとするとjsでテキストフィールドに入力されている値が使えるようになります。</p>
+		<h1>課題</h1>
+		<h2>今回は、変数とfunctionを覚えました。次回までの課題として、「足し算ができる関数」を使ったJavaScriptにチャレンジしてみてください。</h2>
+		<script type="text/javascript">
+			function plus(a,b){
+				var c=Number(a)+Number(b);
+				return c;
+			}
+		</script>
+		<input type="text" id="num1"><br>
+		<input type="text" id="num2"><br>
+		<input type="button" value="和を求める" onclick="alert(plus(num1.value,num2.value))">
+		<h3>解答</h3>
+		Number(a)+Number(b)として変数cを定義して表示させます。a+bだと文字列の結合として扱われてしまいます。<br>
+		Numberを使わない場合はc=(a-0)+(b-0),c=a*1+b*1,c=a/1+b/1とすることで数値として計算できるようになります。<br>
+		Number関数以外にもparseInt,parseFloatなどでも文字を数字に変換できます。<br>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+﻿@charaset "utf-8";
+body {
+	background-color: #EEE;
+}
+
+.div1 {
+	/*background-color: #FFF;*/
+	background: radial-gradient(#F00, #300);
+	border: 3px solid #000;
+	border-radius: 500px;
+	/*overflow: hidden;*/
+	height: 294px;
+	text-align: center;
+	width: 294px;
+}
+
+.div2 {
+	/*background-color: #FFF;*/
+	background: linear-gradient(blue, #300);
+	border: 3px solid #000;
+	border-radius: 500px;
+	/*overflow: hidden;*/
+	height: 294px;
+	text-align: center;
+	width: 294px;
+}
+
+.div3 {
+	background-color: #FFF;
+	border: 3px solid #000;
+	border-radius: 500px;
+	overflow: hidden;
+	height: 294px;
+	text-align: center;
+	width: 294px;
+}
+
+.hover {
+	background-color: #FFF;
+	border: 5px solid #333;
+	height: 50px;
+	text-align: center;
+	/*transition: width linear 0.5s;*/
+	transition: all linear 0.5s;
+	/*transition: all ease 0.5s;*/
+	width: 50px;
+}
+
+.hover:hover {
+	background-color: #66F;
+	height: 200px;
+	width: 200px;
+}
+
+p {
+	color: #000;
+	font-size: 20px;
+	margin: 0;
+}
+
+.animated {
+	border: 5px solid #333;
+	line-height: 290px;
+	height: 290px;
+	text-align: center;
+	width: 290px;
+	animation: mover linear 1.0s infinite alternate;
+}
+
+@keyframes mover {
+	0% {
+		background-color: #000;
+		border-radius: 0px;
+	}
+	100% {
+		background-color: #FFF;
+		border-radius: 160px;
+	}
+}

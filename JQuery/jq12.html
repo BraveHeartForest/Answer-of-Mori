@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（form編)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<p>メールアドレス：<input type="text" name="name"></p>
+	<button>確認</button>
+	<pre>
+&lt;p&gt;メールアドレス：&lt;input type="text" name="name"&gt;&lt;/p&gt;
+&lt;button&gt;確認&lt;/button&gt;
+
+&lt;script&gt;
+	
+	$(function () {
+		$("button").click(function () {
+			$("p").text($("input").val() + "にメールを送信します。");
+			$("button").text("送信");
+		});
+	});
+	
+	//以下はクリアするボタンformタグでのresetに近いものを感じる。
+	/*
+	$(function(){
+		$("button").click(function(){
+			$("input").val("");
+		});
+	});
+	*/
+&lt;/script&gt;
+	</pre>
+</body>
+<script>
+	
+	$(function () {
+		$("button").click(function () {
+			$("p").text($("input").val() + "にメールを送信します。");
+			$("button").text("送信");
+		});
+	});
+	
+	//以下はクリアするボタンformタグでのresetに近いものを感じる。
+	/*
+	$(function(){
+		$("button").click(function(){
+			$("input").val("");
+		});
+	});
+	*/
+</script>
+
+</html>

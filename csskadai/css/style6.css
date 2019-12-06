@@ -1,0 +1,8 @@
+﻿@charaset "utf-8";
+
+.bg_test{
+	width:500px;
+	height:250px;
+	background-image:url("ferret.jpg");
+}
+	

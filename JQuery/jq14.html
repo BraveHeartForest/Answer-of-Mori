@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（外部ファイル読み込み+mouse)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<pre>
+&lt;script&gt;
+$(function(){
+	$("button").click(function(){
+		$("p").load("./sample.txt");
+	});
+});
+&lt;/script&gt;
+
+以下にsample.txtの内容を記す。
+＿＿＿＿＿＿＿＿＿＿sample.txt＿＿＿＿＿＿＿＿＿＿
+sampleのテキストかもだ？
+&lt;script&gt;
+    $(function(){
+        $("button").mouseover(function(){
+            $("p").text("変更前に戻ったかもだ？");
+        }).mouseout(function(){
+            $("p").text("sampleのテキストです。");
+        });
+	});
+&lt;/script&gt;
+＿＿＿＿＿＿＿＿＿＿End＿＿＿＿＿＿＿＿＿＿＿＿＿
+	</pre>
+	<button>変更</button>
+	<p>変更前</p>
+</body>
+<script>
+	$(function(){
+		$("button").click(function(){
+			$("p").load("./sample.txt");
+		});
+	});
+</script>
+</html>

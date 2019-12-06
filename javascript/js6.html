@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		サンプル
+	</title>
+	<script src="./js/script.js"></script>
+</head>
+
+<body>
+	<h1>2.DOM操作、フォーム</h1>
+	<h2>外部JavaScriptファイルに記述した関数を用い、りんごの詳細情報を画面に表示しなさい。</h2>
+	<h3>なお、作成する外部JSファイル内部の関数名や処理については任意とするが、詳細情報の切り替えは価格：108円のテキストにマウスカーソルが乗っているか否かとする。</h3>
+	<br>
+	<p>リンゴの詳細情報を表示</p>
+	<div onmouseover="appleChange(0)" onmouseout="appleChange(1)">価格:108円</div><br>
+	<div id="apple">ここが書き換えられる。</div>
+</body>
+
+</html>

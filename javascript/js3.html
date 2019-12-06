@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function tax(){
+			//入力ダイアログを表示+入力内容をpriceに代入。
+			price =window.prompt("税込価格を知りたい商品の値段を入力してください。","");
+
+			let price_t=0;	//定義+初期化
+			const TAX_NOW = 1.1;	//消費税率は定数として定義する。
+
+			price_t=TAX_NOW*price;	//消費税率かける税抜価格
+			price_t=Math.floor(price_t);	//小数点以下切り捨て
+
+			alert("税抜："+price+"円\n"+
+			"税込："+price_t+"円");
+			//未入力、半角数字以外での入力に対する対処がされていない。
+		}
+		</script>
+		<h1>関数を用いて金額に応じた消費税を画面に表示する。</h1>
+		<h2>関数名はtaxとして与えられた金額の消費税の計算及び画面への表示処理を行うものとする。</h2>
+		<p><input type="button" value="入力ダイアログ" onclick="tax()"></p>
+	</body>
+</html>

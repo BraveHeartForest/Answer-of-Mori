@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ページタイトル</title>
+	<!--CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<!--JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--自作CSS -->
+	<style type="text/css">
+		<!--
+		/*ここに調整CSS記述*/
+		-->
+	</style>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+
+		<form>
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" id="name" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<textarea id="description" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="selection">Selection:</label>
+				<select id="selection" class="form-control">
+					<option>AAA
+					<option>BBB
+				</select>
+			</div>
+			<!--通常フォーム-->
+
+			<input type="button" VALUE="OK">
+		</form>
+
+		<br><br>
+
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" id="name" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<textarea id="description" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="selection">Selection:</label>
+				<select id="selection" class="form-control">
+					<option>AAA
+					<option>BBB
+				</select>
+			</div>
+
+			<input type="button" VALUE="OK">
+		</form>
+		<!--インラインフォーム（行内フォーム）-->
+
+		<br><br>
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" id="name" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<textarea id="description" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="selection">Selection:</label>
+				<select id="selection" class="form-control">
+					<option>AAA
+					<option>BBB
+				</select>
+			</div>
+
+			<input type="button" VALUE="OK">
+		</form>
+		<!--垂直方向フォーム-->
+		<br><br>
+
+		<form>
+			<LABEL class="checkbox-inline">
+				<input type="checkbox" name="cb1">CB1
+			</LABEL>
+
+			<label class="checkbox-inline">
+				<input type="checkbox" name="cb2">CB2
+			</label>
+			<br>
+
+			<label class="radio-inline">
+				<input type="radio" name="rd" checked>RD1
+			</label>
+
+			<label class="radio-inline">
+				<input type="radio" name="rd">RD2
+			</label>
+			<br><br>
+
+		</form>
+		<!--チェックボックスとラジオボックスをインラインで-->
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Email</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">admin@examle.com</p>
+				</div>
+			</div>
+		</form>
+		<!--スタティックコントロール（変更不可のコントロールボックス)-->
+		<br><br>
+
+		<form class="form-horizontal">
+			<div class="form-group has-success">
+				<label fo="vs1" class="control-label col-sm-2">Success</label>
+				<div class="col-sm-10"><input type="text" id="vs1" class="form-control" placeholder="Correct data">
+				</div>
+			</div>
+			<div class="form-group has-warning">
+				<label fo="vs2" class="control-label col-sm-2">Warning</label>
+				<div class="col-sm-10"><input type="text" id="vs2" class="form-control" placeholder="Warning data">
+				</div>
+			</div>
+			<div class="form-group has-error">
+				<label fo="vs3" class="control-label col-sm-2">Error</label>
+				<div class="col-sm-10"><input type="text" id="vs3" class="form-control" placeholder="Invalid data">
+				</div>
+			</div>
+		</form>
+		<!--バリデーションステータス（JavaScriptとの組み合わせで使う)-->
+		<br><br>
+		<form class="form-inline">
+			<div class="form-group has-feedback has-success">
+				<input type="text" class="form-control">
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
+			<div class="form-group has-feedback has-warning">
+				<input type="text" class="form-control">
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+			</div>
+			<div class="form-group has-feedback has-error">
+				<input type="text" class="form-control">
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+			</div>
+		</form>
+		<!--フィードバックアイコン、アクセシビリティを高める方法が存在するらしいがここでは割愛-->
+		<br><br>
+
+		<form class="form-horizontal">
+			<label for="name">Name:</label>
+			<div class="form-group form-group-sm">
+				<input type="text" class="form-control">
+			</div>
+			<label for="name">Name:</label>
+			<div class="form-group form-group-lg">
+				<input type="text" class="form-control">
+			</div>
+		</form>
+		<!--フォームグループのサイズを変える。-->
+		<br><br>
+
+		<form>
+			<div class="form-group">
+				<label for="phone" class="control-label">Phone number</label>
+				<input type="text" id="phone" name="phone" class="form-control" aria-describedby="phone-help">
+				<p id="phone-help" class="hepl-block">Your telephone number. (e.g. 090-9xxx-xxxx)</p>
+			</div>
+		</form>
+		<!--ヘルプ-->
+
+	</div>
+	<!--fluidを閉じる-->
+</body>
+
+</html>

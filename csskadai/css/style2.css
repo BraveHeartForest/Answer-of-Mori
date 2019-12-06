@@ -1,0 +1,14 @@
+﻿@charaset "utf-8";
+
+h1{
+	color:white;/*文字色を白に*/
+	background-color:blue;/*背景色を青に*/
+	font-size:36px;/*文字サイズを36pxに*/
+	font-weight:bold;/*文字効果で太字に*/
+	text-align:center;	/*水平方向に中央揃え*/
+}
+
+h2{
+	color:green;/*文字色を緑に*/
+	font-size:30px;/*文字サイズを30pxに*/
+}

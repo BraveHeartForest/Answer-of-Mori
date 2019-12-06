@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body oncontextmenu="alert('右クリック禁止!!!!'); return false">
+		このページで右クリックが禁止なのはオセアニアじゃあ常識なんだよ！！！<br>
+		GoogleChromeじゃあ常識じゃないんだよ！！！<br>
+		FireFoxでも常識じゃないんだよ！！！！<br>
+		じゃあ動作確認はどうするんだよ！！？？<br>
+		続けるさ！<br>
+		<a href="http://www.google.com/" onclick="return false">リンクできない</a>
+		<br>
+		javascript:alert('右クリック禁止を禁止！'); document.body.oncontextmenu=''; document.oncontextmenu=''; document.onmousedown=''; void(0)<br>
+		<p>document.bodyにあるoncontextmenuの中身を空白に変更、他も似たようなもの、最後のvoid(0)はページの移動をしないためのものでこれを書かないと真っ白のページに移動します。</p>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*var seito = new Object();
+			seito.name="山田太郎";
+			seito.score=95;
+			document.write(seito.name+":"+seito.score+"点");*/
+
+			function Student(_name, _score){
+				this.name = _name;
+				this.score = _score;
+			}
+
+
+			var kumi=[];
+			kumi[0] = new Student("ヤマダ電機",95);
+			kumi[1] = new Student("田中角栄",73);
+			kumi[2] = new Student("鈴木宗男",86);
+			kumi[3] = new Student("雪印乳業",68);
+			kumi[4] = new Student("鳥山明",96);
+
+			var total=0;
+
+
+			for(i=0;i<kumi.length;i++){
+				total=total+kumi[i].score;
+				document.write(kumi[i].name+":"+kumi[i].score+"点<br>");
+			}
+
+			document.write("全員の平均点は"+(total/kumi.length)+"です。")
+			//https://www.atmarkit.co.jp/ait/articles/1011/29/news109_2.html
+		</script>
+	</body>
+</html>

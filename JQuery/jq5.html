@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作(div)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>テスト</h1>
+	<p>色の値を入力：</p>
+	<div id="box"></div>
+	<p>http://www.htmq.com/color/colorname.shtmlを参考に入力してください。</p>
+	<input type="text" id="color_num">
+	<input type="button" value="Click" onclick="colorChange()">
+	<pre>
+&lt;div id="box"&gt;&lt;/div&gt;
+&lt;input type="text" id="color_num"&gt;
+&lt;input type="button" value="Click" onclick="colorChange()"&gt;
+
+&lt;script&gt;
+	function colorChange() {
+		$("&lt;div&gt;&lt;/div&gt;").css("background-color", color_num.value).html(color_num.value).appendTo('#box');
+		//.css("背景色",入力フォームのid.値)で背景色を変更
+		//.html(入力フォームのid.値)で入力名称を追加。
+		//.appendTo(id名)で[id名]の部分にこれまでの内容を追加。
+		/*appendTo(content)
+		要素の中身を他の要素に追加する。
+		例えば $(A).append(B) とした場合にAにBが追加されるのに対して、$(A).appendTo(B) ではBにAが追加される。
+		*/
+	}
+&lt;/script&gt;
+	</pre>
+
+</body>
+
+<script>
+	function colorChange() {
+		$("<div></div>").css("background-color", color_num.value).html(color_num.value).appendTo('#box');
+		//.css("背景色",入力フォームのid.値)で背景色を変更
+		//.html(入力フォームのid.値)で入力名称を追加。
+		//.appendTo(id名)で[id名]の部分にこれまでの内容を追加。
+		/*appendTo(content)
+		要素の中身を他の要素に追加する。
+		例えば $(A).append(B) とした場合にAにBが追加されるのに対して、$(A).appendTo(B) ではBにAが追加される。
+		*/
+	}
+</script>
+
+</html>

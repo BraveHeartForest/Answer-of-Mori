@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（css)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<ul>
+		<li>ここが色づく予定</li>
+		<li>＊＊＊＊＊＊</li>
+		<li>＊＊＊＊＊＊</li>
+	</ul>
+	<input type="button" value="color" onclick="paint()">
+	<pre>
+&lt;input type="button" value="color" onclick="paint()"&gt;
+
+&lt;script&gt;
+	function paint() {
+		let rnd = Math.random() * 4;	//rndは0&lt;x&lt;3の乱数
+		rnd = Math.floor(rnd);	//rndの値を小数点以下切り捨て、再代入。rndは0,1,2,3のいずれか。
+		let arr = ["plum", "mistyrose", "darkorange", "gold"];
+		let font = ["bolder", "normal", "lighter", "bolder"];
+		let colorname = ["peru", "olive", "sandybrown", "indigo"];
+		$("li:first").css({	//liの一番最初の要素のcssを以下のように変更する。
+			"backgroundColor": arr[rnd],
+			"fontWeight": font[rnd],
+			"color": colorname[rnd]
+		});
+	}
+	//複数のcssを同時に記述する場合は上のようにbackground-colorをbackgroundColorとハイフンに続く文字を大文字にします。
+	//全てrnd一つに依存するため、色の組み合わせは決まっている。
+&lt;/script&gt;
+	</pre>
+</body>
+
+</html>
+<script>
+	function paint() {
+		let rnd = Math.random() * 4;	//rndは0<x<3の乱数
+		rnd = Math.floor(rnd);	//rndの値を小数点以下切り捨て、再代入。rndは0,1,2,3のいずれか。
+		let arr = ["plum", "mistyrose", "darkorange", "gold"];
+		let font = ["bolder", "normal", "lighter", "bolder"];
+		let colorname = ["peru", "olive", "sandybrown", "indigo"];
+		$("li:first").css({	//liの一番最初の要素のcssを以下のように変更する。
+			"backgroundColor": arr[rnd],
+			"fontWeight": font[rnd],
+			"color": colorname[rnd],
+		});
+	}
+	//複数のcssを同時に記述する場合は上のようにbackground-colorをbackgroundColorとハイフンに続く文字を大文字にします。
+	//全てrnd一つに依存するため、色の組み合わせは決まっている。
+</script>

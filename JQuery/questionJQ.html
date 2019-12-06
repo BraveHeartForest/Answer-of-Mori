@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		data-pickerに関して。
+	</title>
+	<link rel="stylesheet" href="https://fengyuanchen.github.io/datepicker/css/datepicker.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://fengyuanchen.github.io/datepicker/js/datepicker.js"></script>
+	<script src="https://fengyuanchen.github.io/datepicker/js/datepicker.ja-JP.js"></script>
+	<script src="https://fengyuanchen.github.io/datepicker/js/datepicker.js"></script>
+	<script src="https://fengyuanchen.github.io/datepicker/js/datepicker.ja-JP.js"></script>
+
+</head>
+
+<body>
+	<input type="text" value="" data-toggle="datepicker" readonly>
+	<pre>
+&lt;input type="text" value="" <b>data-toggle="datepicker"</b> readonly&gt;
+
+&lt;script&gt;
+	$(function () {
+		$(<b>'[data-toggle="datepicker"]'</b>).datepicker({
+			language: 'ja-JP'
+		});
+	});
+&lt;/script&gt;
+	</pre>
+</body>
+
+<script>
+	$(function () {
+		$('[data-toggle="datepicker"]').datepicker({
+			language: 'ja-JP'
+		});
+	});
+</script>
+
+</html>

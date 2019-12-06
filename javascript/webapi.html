@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebAPI練習</title>
+    <script>
+        //XMLHttpRequestオブジェクトの作成
+        var request = new XMLHttpRequest();
+
+        //URLを開く
+        request.open('GET', 'https://jsonplaceholder.typicode.com/users/1', true);
+        request.responseType = 'json';
+
+        //レスポンスが返って来た時の処理を記述
+        request.onload = function () {
+            //レスポンスが返ってきたときの処理
+            var data = this.response;
+            //dataはこのスクリプトで定義されたresponse
+            console.log(data);
+            //dataをコンソールに表示する。
+        }
+
+        //リクエストをURLに送信。
+        request.send();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

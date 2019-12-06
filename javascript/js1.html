@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var number=0;
+
+			function disp(){
+				number = window.prompt("数値を入力してください。","");
+				
+				if(number<=10 && number>=1){
+					alert("正常\n number="+number);
+				}else{
+					alert("エラー\n number="+number);
+				}
+			}
+
+			disp();
+		</script>
+		変数numberに1～10の数値が代入されている場合は「正常」、そうでない場合は「エラー」と表示します。
+	</body>
+</html>

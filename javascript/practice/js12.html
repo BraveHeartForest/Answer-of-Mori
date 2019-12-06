@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			ドキュメントツリーって？
+		</title>
+	</head>
+	<body>
+		<div>
+			ドキュメントオブジェクトはツリー構造で表せます。
+		</div>
+		<script type="text/javascript">
+			alert(document.firstChild.childNodes[1].firstChild.firstChild.nodeValue);
+			//alert(document.firstChild.childNodes[1].childNodes[1].firstChild.nodeValue);
+			//IE以外では上記のように書かないとエラーが発生して正しく動きません。
+		</script>
+		document.firstChildがhtmlタグ、そこからchildNodes[1]がbodyタグ、そこからfirstChildがdivタグ、そこからfirstChildがそこにあるテキスト、nodeValueでテキストの内容を取り出します。<br>
+		これがDOMでの操作ですが、ブラウザによってドキュメントツリーの構造が違うという弱点が存在します。<br>
+
+	</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function arrSum(){
+			roop=window.prompt("配列の要素の数を最初に入力してください。但し10以下です。","");
+			roop=roop*1;
+			if(Number.isInteger(roop)){	//Number.isIntegerは読んで字のごとく整数値か否かを判別します。
+				if(roop>10 || roop<0 ||roop==0){
+					alert("要素の数は10以下の自然数にしてください。");
+				}else{	//10以下かつ0以上
+					let group = [];	//配列を用意。初期化。
+
+					for(let i=0;i<roop;i++){	//roopの回数分繰り返す。
+						let variant=0;
+						variant=window.prompt("数値を入力してください。"+(i+1)+"回目","");
+						if(!isNaN(variant)){	//isNaNはis Not a Numberでそれを!で否定。∴trueならば数値である。falseならば数値でない。
+							group[i] = variant;
+						}else{
+							alert("半角数字が入力されていないので、仮に10ということにします。")
+							variant = 10;
+							group[i] = variant;
+						}					
+					}	//配列に数値を入力終了。
+					//ここまでが配列を与える部分
+
+					let total=0;
+					let elements='';
+					//初期条件です。
+
+					for(let j=0; j<group.length; j++){
+						if(j==group.length-1){
+							total = total+group[j]*1;
+							elements=elements+group[j];
+							break;
+						}
+						total = total+group[j]*1;
+						elements=elements+group[j]+",";
+					}
+					alert("各要素："+elements+"\n合計値："+total);
+				}
+			}else{	//roopが整数値ではない。
+				alert("要素の数は半角数字で整数値で入力してください。");
+			}
+		}
+		</script>
+		<h1>関数を用い、配列の各要素の値に応じた合計値を表示しなさい。</h1>
+		<h2>関数名はarrSumとし、与えられた配列の各要素の合計値の計算及び画面への表示処理を行うものとする。</h2>
+		<input type="button" value="配列に入力&結果出力" onclick="arrSum()">
+	</body>
+</html>

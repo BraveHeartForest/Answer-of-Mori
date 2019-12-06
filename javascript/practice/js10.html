@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a=[];
+
+			a[0]="山田太郎";
+			a[1]="田中栄一";
+			a[2]="鈴木宗男";
+
+			document.write(a[0]+"<br>");
+
+			var score=new Array(95,73,86,47,90);
+			var total=0;
+			var average=0;
+
+			for(var i=0;i<score.length;i++){
+				document.write("<h5>"+score[i]+"</h5>")
+				total=total+score[i];
+			}
+
+			average=total/score.length;
+
+			document.write(total+"<br>");
+			document.write(average);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<script>
+	$("document").ready(function () {
+		$("p").css({
+			color: "tomato",
+			backgroundColor: "aliceblue",
+			fontSize: "150%",
+			fontWeight: "bold",
+			fontStyle: "italic",
+			fontFamily: "sans-serif",
+			textShadow: "3px 3px 2px salmon",
+			border: "inset"
+		});
+	});
+//ready()はhtmlが読み込まれたタイミングで実行する。
+//但し、他のイベントでもready()は必須。
+</script>
+
+<body>
+	<p>テストtest</p>
+	<pre>
+&lt;script&gt;
+$("document").ready(function () {
+	$("p").css({
+		color: "tomato",
+		backgroundColor: "aliceblue",
+		fontSize: "150%",
+		fontWeight: "bold",
+		fontStyle: "italic",
+		fontFamily: "sans-serif",
+		textShadow: "3px 3px 2px salmon",
+		border: "inset"
+	});
+});
+//ready()はhtmlが読み込まれたタイミングで実行する。
+//但し、他のイベントでもready()は必須。
+&lt;/script&gt;
+	</pre>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+﻿@charaset "utf-8";
+#container {
+	background-color: gray;
+	text-align: center;
+}
+
+#header {
+	height: 100px;
+	background-color: skyblue;
+	text-align: center;
+}
+
+#rightsidebar {
+	height: 250px;
+	background-color: cadetblue;
+	text-align: center;
+}
+
+#leftsidebar {
+	height: 250px;
+	background-color: silver;
+	text-align: center;
+}
+
+#main {
+	height: 250px;
+	background-color: powderblue;
+	text-align: center;
+	/*margin: 0 auto;
+	水平方向中央揃え*/
+}
+
+#footer {
+	height: 50px;
+	background-color: steelblue;
+	text-align: center;
+}

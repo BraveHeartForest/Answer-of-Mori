@@ -1,0 +1,20 @@
+﻿@charaset "utf-8";
+
+h1{
+	background-color:thistle;
+	padding:20px 10px;
+	border:dimgray double 4px;
+	width:500px;
+}
+
+.contents{
+	width;500px;
+}
+
+.main{
+	width:500px;
+	background-color:gainsboro;
+	padding:10px;
+	border:dimgray solid 2px;
+}
+	

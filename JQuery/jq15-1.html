@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Ajaxのテスト
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		$(function () {
+			//ajax link click
+			$('#ajax').click(function(){
+				$.ajax({
+					url: './post.php',
+					type: 'POST',
+					data: {
+						'pd': 'こんにちは'
+					}
+				})
+					// Ajaxリクエストが成功した瞬間、発動。
+					.done((data) => {
+						$(".result").html(data);
+						console.log(data + "成功メッセージです。");
+					})
+					// Ajaxリクエストが失敗した瞬間、発動。
+					.fail((data) => {
+						$("result").html(data);
+						console.log(data + "失敗メッセージです。");
+					})
+					// Ajaxリクエストが成功しようが失敗しようが発動。
+					.always((data) => {
+						alert(data);
+					});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<a href="javascript: void(0)" id="ajax">ajax</a><br>
+	javascript: void(0)でリンク先に飛ばないようにしている。
+	<div class="result"><b>ここの内容をjavascriptで(phpではなく)書き換えるので要注意！</b></div>
+	<h3>ajaxではurlに対してtype指定してdataを送信して、そのデータを受けとったurl先を引っ張ってくる。</h3>
+	<h4>飛び先post.phpの内容を以下に記す。</h4>
+	<pre>
+&lt;?php
+print'your post data is '.$_POST['pd'];
+	</pre>
+	<h4>以下にscriptの内容を記す。</h4>
+	<pre>
+&lt;script&gt;
+$(function () {
+	//ajax link click
+	$('#ajax').click(function(){
+		$.ajax({
+			url: './post.php',
+			type: 'POST',
+			data: {
+				'pd': 'こんにちは'
+			}
+		})
+			// Ajaxリクエストが成功した瞬間、発動。
+			.done((data) =&gt; {
+				$(".result").html(data);
+				console.log(data + "成功メッセージです。");
+			})
+			// Ajaxリクエストが失敗した瞬間、発動。
+			.fail((data) =&gt; {
+				$("result").html(data);
+				console.log(data + "失敗メッセージです。");
+			})
+			// Ajaxリクエストが成功しようが失敗しようが発動。
+			.always((data) =&gt; {
+				alert(data);
+			});
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.center {
+    display: inline-block;
+    border: 1px solid blueviolet;
+    text-align: center;
+    
+}
+
+
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}

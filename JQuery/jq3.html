@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		JQueryでのDOM操作のサンプル
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>TEST.</h1>
+	<p id="text">(id)テキストを入力：</p>
+	<p class="text">(class)テキストを入力：</p>
+	<p>htmlescapeの対策が出来ていないので、好き放題出来ます。</p>
+	<!--https://iwb.jp/jquery-javascript-html-escape/-->
+	<input type="text" id="enter">
+	<input type="button" value="Click" onclick="addText()">
+	<script>
+		function addText() {
+			$("#text").html("あなたは、&quot;" + enter.value + "&quot;と書きました(#id)");
+			$(".text").html("あなたは、&quot;" + enter.value + "&quot;と書きました(.class)");
+		}
+	</script>
+	<pre>
+&lt;input type="text" id="enter"&gt;
+&lt;input type="button" value="Click" onclick="addText()"&gt;
+&lt;script&gt;
+	function addText() {
+		$("#text").html("あなたは、&quot ;" + enter.value + "&quot ;と書きました(#id)");
+		$(".text").html("あなたは、&quot ;" + enter.value + "&quot ;と書きました(.class)");
+	}
+&lt;/script&gt;	
+	</pre>
+</body>
+
+</html>

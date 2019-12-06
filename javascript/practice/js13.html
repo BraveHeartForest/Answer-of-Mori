@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html>
+  <body>
+    <div>1個目のdivタグです</div>
+    <div>2個目のdivタグです</div>
+    <div>3個目のdivタグです</div>
+    <script>
+		var dt=document.getElementsByTagName("div");
+		for(var i=0; i<dt.length; i++){
+			dt[i].firstChild.nodeValue="ここが書き換わりました。";
+		}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（aタグ無効化編)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>a要素の機能を無効化する方法です</h1>
+	<h2>click()は任意の要素を指定できますが、元々クリックされる要素であるaタグをクリックすると期待していない動作をされます。</h2>
+	<h3>回避方法2</h3>
+	<h4>scriptで回避します無名関数内部でreturn falseを使います。</h4>
+	<a href="./images/ferret.jpg">画像を変更</a>
+	<p><img src="./images/kani1.jpg" alt="カニ1"></p>
+	<pre>
+&lt;a href="./images/ferret.jpg"&gt;画像を変更&lt;/a&gt;
+&lt;p&gt;&lt;img src="./images/kani1.jpg" alt="カニ1"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+	$(function () {
+		$("a").click(function () {
+			$("img").attr("src", "./images/kani2.jpg").attr("alt", "カニ２");
+			return false;
+		});
+	});
+&lt;/script&gt;
+	</pre>
+	<a href="http://webtech-walker.com/archive/2012/09/event_handler_return_false.html">return falseについて</a>
+</body>
+
+<script>
+	$(function () {
+		$("a").click(function () {
+			$("img").attr("src", "./images/kani2.jpg").attr("alt", "カニ２");
+			return false;
+		});
+	});
+</script>
+
+</html>

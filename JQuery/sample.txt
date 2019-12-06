@@ -1,0 +1,10 @@
+sampleのテキストかもだ？
+<script>
+    $(function(){
+        $("button").mouseover(function(){
+            $("p").text("変更前に戻ったかもだ？");
+        }).mouseout(function(){
+            $("p").text("sampleのテキストです。");
+        });
+    });
+</script>

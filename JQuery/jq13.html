@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（form編)
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+	お名前：<input type="text" value="">
+	<pre>
+&lt;script&gt;
+//入力してください。が灰色で表示されていて、入力しようとする（フォーカスする）とデフォルト値が空白になり、文字色が黒に変更される。
+$(function(){
+	$("input").val("入力してください。").css("color","#CCC").focus(function(){
+		$(this).val("").css("color","#000");	//ここでいうthisはinputのこと
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+<script>
+	//入力してください。が灰色で表示されていて、入力しようとする（フォーカスする）とデフォルト値が空白になり、文字色が黒に変更される。
+	$(function(){
+		$("input").val("入力してください。").css("color","#CCC").focus(function(){
+			$(this).val("").css("color","#000");	//ここでいうthisはinputのこと
+		});
+	});
+</script>
+
+</html>

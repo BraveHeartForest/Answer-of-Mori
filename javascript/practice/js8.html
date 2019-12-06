@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			サンプル
+		</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function judgement(defendant){
+				if(defendant > 10){
+					document.getElementById("evidence").innerHTML ="有罪！";
+				}else if(defendant>5){
+					document.getElementById("evidence").innerHTML="取り敢えず有罪";
+				}else{
+					document.getElementById("evidence").innerHTML ="推定無罪";
+				}
+			}
+		</script>
+		<input type="text" id="num">
+		<input type="button" value="判決" onclick="judgement(num.value)">
+		<div id="evidence">ここに結果を表示します。</div>
+		<p>document.getElementById(#id).innerHTMLで#idの部分を書き換える効果があります。</p>
+		<h1>課題</h1>
+		<h2>以下のソースには無駄がありますそれを修正しなさい</h2>
+		<pre>
+	&lt;script type=&quot;text/javascript&quot;&gt;
+      	function handan(shadanki){
+        if(shadanki &gt;= 4){
+          if(shadanki &gt; 6) {
+            document.getElementById(&quot;kekka&quot;).innerHTML = &quot;止まる&quot;;
+          } else if (police.value == 0) {
+            document.getElementById(&quot;kekka&quot;).innerHTML = &quot;ダッシュ&quot;;
+          } else {
+            document.getElementById(&quot;kekka&quot;).innerHTML = &quot;止まる&quot;;
+	  }
+        } else {
+           document.getElementById(&quot;kekka&quot;).innerHTML = &quot;進む&quot;;
+        }
+      }
+    &lt;/script&gt;
+    &lt;select id=&quot;police&quot;&gt;
+      &lt;option value=0 selected=&quot;selected&quot;&gt;お巡りさんがいない&lt;/option&gt;
+      &lt;option value=1&gt;お巡りさんがいる&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type=&quot;text&quot; id=&quot;num_a&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;判断&quot; onclick=&quot;handan(num_a.value)&quot;&gt;
+    &lt;div id=&quot;kekka&quot;&gt;ここに判断結果を表示します&lt;/div&gt;
+		</pre>
+		<h3>解答</h3>
+		<script type="text/javascript">
+			function handan(shadanki){
+				if(shadanki >= 4){
+					if(shadanki > 6 || police.value == 1) {
+						document.getElementById("kekka").innerHTML = "止まる";
+					} else {
+						document.getElementById("kekka").innerHTML = "ダッシュ";
+					}
+					} else {
+					document.getElementById("kekka").innerHTML = "進む";
+					}
+			}
+		</script>
+		<select id="police">
+			<option value="0" selected="selected">お巡りさんがいない</option>
+			<option value="1">お巡りさんがいる</option>
+		</select>
+		<input type="text" id="num_a">
+		<input type="button" value="判断" onclick="handan(num_a.value)">
+		<div id="kekka">ここに判断結果を表示します</div>
+	</body>
+</html>

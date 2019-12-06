@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		JQueryサンプル
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		$("p").css("color", "yellow");
+		$(document).ready(function () {
+			alert("header部分が処理されました。");
+		});
+	</script>
+</head>
+<script>
+	$("p").css("color", "blown");
+	$(document).ready(function () {
+		alert("body前が処理されました。");
+	});
+</script>
+
+<body>
+	<script>
+		$("p").css("color", "green");
+		$(document).ready(function () {
+			alert("body内部が処理されました。");
+		});
+	</script>
+	<p>テスト</p>
+	<label for="header-script">header内部</label>
+	<pre id="header-script">
+$("p").css("color", "yellow");
+$(document).ready(function () {
+	alert("header部分が処理されました。");
+});
+	</pre>
+	<label for="before-body">body前</label>
+	<pre id="before-body">
+$("p").css("color", "blown");
+$(document).ready(function () {
+	alert("body前が処理されました。");
+});
+	</pre>
+	<label for="body-in">body内部</label>
+	<pre>
+$("p").css("color", "green");
+$(document).ready(function () {
+	alert("body内部が処理されました。");
+});
+	</pre>
+	<label for="after-body">/bodyの後</label>
+	<pre>
+$("p").css("color", "blue");
+$(document).ready(function () {
+	alert("/bodyの後が処理されました。");
+});
+	</pre>
+	<label for="after-html">/html後</label>
+	<pre>
+$("p").css("color", "red");
+$(document).ready(function () {
+	alert("/htmlの後が処理されました。");
+});
+	</pre>
+</body>
+<script>
+	$("p").css("color", "blue");
+	$(document).ready(function () {
+		alert("/bodyの後が処理されました。");
+	});
+</script>
+
+</html>
+<script>
+	$("p").css("color", "red");
+	$(document).ready(function () {
+		alert("/htmlの後が処理されました。");
+	});
+</script>

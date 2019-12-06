@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（画像編）もしくはAjax?
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<script>
+	$(function () {
+		$("#jqs-6 #hide").click(function () {
+			$("#jqs-6 img").hide('slow');
+		});
+		$("#show").click(function () {
+			$("#jqs-6 img").show('slow');
+		});
+	});
+</script>
+
+<body>
+	<h1 id="show">Test.</h1>
+	<div id="jqs-6">
+		<p><img src="./images/kani2.jpg" alt="Flower" id="hide"></p>
+	</div>
+	<pre>
+&lt;h1 id="show"&gt;Test.&lt;/h1&gt;
+&lt;div id="jqs-6"&gt;
+	&lt;p&gt;&lt;img src="./images/kani2.jpg" alt="Flower" id="hide"&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+$(function () {
+	$("#jqs-6 #hide").click(function () {
+		$("#jqs-6 img").hide('slow');
+	});
+	$("#show").click(function () {
+		$("#jqs-6 img").show('slow');
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+</html>

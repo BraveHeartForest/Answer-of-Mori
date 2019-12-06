@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここに説明文を書く？">
+	<meta name="author" content="ここにサイト制作者の名前を書く？">
+	<title>DB</title>
+	<!--CSS-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!--JS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--自作CSS-->
+	<style type="text/css">
+		p {
+			font-size: 20px;
+		}
+
+		label {
+			font-size: 22px;
+		}
+
+		h1 {}
+
+		h2 {}
+
+		h3 {}
+	</style>
+</head>
+
+<body>
+
+	<form method="post" action="./sign_check.php">
+
+
+		<!--いずれbootstrapのis-invalidを条件分岐で適用できるようにしたい-->
+
+
+		<div class="custom-control">
+			<label for="pro_name">商品名：</label>
+			<input type="text" name="pro_name" id="pro_name" class="form-control custom-control-input col-auto">
+		</div>
+
+
+		<div class="custom-control">
+			<label for="price">価格：</label>
+			<input type="text" name="price" id="price" class="form-control custom-control-input col-auto">
+		</div>
+
+		<div class="custom-control">
+			<label for="contents">コンテンツ：</label>
+			<textarea id="contents" name="contents" class="col-xs-12"></textarea>
+		</div>
+
+		<div class="custom-control col-auto">
+			<label for="comment">コメント：</label>
+			<input type="text" name="comment" id="comment" class="form-control custom-control-input col-auto">
+		</div>
+
+
+		<input type="submit" value="送信">
+
+		<br>
+
+		<input type="reset" value="リセット">
+
+		<br>
+	</form>
+	<a href="../index.php"><button class="btn btn-primary">トップ画面に戻る。</button></a>
+</body>
+
+</html>

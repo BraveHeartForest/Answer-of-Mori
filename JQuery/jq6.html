@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		DOM操作（画像編）
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("p").css("color", "red");
+		});
+	</script>
+</head>
+
+<body>
+	<h1>テスト</h1>
+	<input type="button" value="extension" onclick="imgExtend()"><br>
+	<img src="./images/ferret.jpg" alt="aタグで挟まない方（比較用）"><br>
+	<a href=""><img src="./images/ferret.jpg" alt="フェレット"></a>
+	<pre>
+&lt;h1&gt;テスト&lt;/h1&gt;
+&lt;input type="button" value="extension" onclick="imgExtend()"&gt;&lt;br&gt;
+&lt;img src="./images/ferret.jpg" alt="aタグで挟まない方（比較用）"&gt;&lt;br&gt;
+&lt;a href=""&gt;&lt;img src="./images/ferret.jpg" alt="フェレット"&gt;&lt;/a&gt;
+
+&lt;script&gt;
+	function imgExtend() {
+		let wd = $("a&gt;img").width();	//これによって手に入る長さはpx単位であることが分かります。
+		let hg = $("a&gt;img").height();
+		console.log("横幅は" + wd + "pxです。\n" + "縦幅は" + hg + "pxです。");
+		$("a&gt;img").width("+=100").height(hg + 100);	//変数で現在の幅を取得せずとも[+=x]で現在値よりもx.px大きくすることが出来ます。
+	}
+	//現在の値に+100をしています。100px大きくなっていることが判明しました。
+
+	/*
+	.width(value)
+	幅をvalueに設定します。valueを150などのように単位を省略した場合は、
+	pxが自動で設定されます。'50%'などのように単位付きの文字列で指定することもできます。
+	*/
+&lt;/script&gt;
+	</pre>
+</body>
+
+<script>
+	function imgExtend() {
+		let wd = $("a>img").width();	//これによって手に入る長さはpx単位であることが分かります。
+		let hg = $("a>img").height();
+		console.log("横幅は" + wd + "pxです。\n" + "縦幅は" + hg + "pxです。");
+		$("a>img").width("+=100").height(hg + 100);	//変数で現在の幅を取得せずとも[+=x]で現在値よりもx.px大きくすることが出来ます。
+	}
+	//現在の値に+100をしています。100px大きくなっていることが判明しました。
+
+	/*
+	.width(value)
+	幅をvalueに設定します。valueを150などのように単位を省略した場合は、
+	pxが自動で設定されます。'50%'などのように単位付きの文字列で指定することもできます。
+	*/
+</script>
+
+</html>

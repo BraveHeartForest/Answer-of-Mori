@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Ajaxのテスト
+	</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		$(function () {
+			$("#sw").click(function () {	//id="sw"がクリックされたとき。
+			//post.phpの$_POSTへ['pd']='こんにちは'というデータを入れて、
+				$.post('post.php', { 'pd': 'こんにちは' }, function (data) {
+					alert(data);
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<a href="javascript: void(0)" id="sw">switch</a><br>
+	javascript: void(0)でリンク先に飛ばないようにしている。
+	<h4>飛び先post.phpの内容を以下に記す。</h4>
+	<pre>
+&lt;?php
+print'your post data is '.$_POST['pd'];
+	</pre>
+	<h4>以下にscriptの内容を記す。</h4>
+	<pre>
+&lt;script&gt;
+$(function () {
+	$("#sw").click(function () {	//id="sw"がクリックされたとき。
+	//post.phpの$_POSTへ['pd']='こんにちは'というデータを入れて、
+		$.post('post.php', { 'pd': 'こんにちは' }, function (data) {
+			alert(data);
+		});
+	});
+});
+&lt;/script&gt;
+	</pre>
+</body>
+
+</html>

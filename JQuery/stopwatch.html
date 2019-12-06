@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML+JS</title>
+    <link rel="stylesheet" href="./stopwatch.css">
+    <script src="./stopwatch.js"></script>
+</head>
+
+<body>
+    <div id="timer">
+        <h1>Timer</h1>
+        <p>
+            <span id="min">0</span> 分
+            <span id="sec">0</span> 秒
+        </p>
+        <p>
+            <input type="button" id="start" value="START">
+            <input type="button" id="stop" value="STOP" disabled>
+            <input type="button" id="reset" value="RESET">
+        </p>
+    </div>
+    <h2>html部分</h2>
+    <pre>
+&lt;div id="timer"&gt;
+&lt;h1&gt;Timer&lt;/h1&gt;
+&lt;p&gt;
+    &lt;span id="min"&gt;0&lt;/span&gt; 分
+    &lt;span id="sec"&gt;0&lt;/span&gt; 秒
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;input type="button" id="start" value="START"&gt;
+    &lt;input type="button" id="stop" value="STOP" disabled&gt;
+    &lt;input type="button" id="reset" value="RESET"&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+    </pre>
+    <h2>js部分</h2>
+    <pre>
+window.onload = function () {
+    var time = 180; //初期値
+    var counter;
+    var min = document.getElementById("min");
+    var sec = document.getElementById("sec");
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+    var reset = document.getElementById("reset");
+
+    start.onclick = function () {
+        toggle();   //下の自作関数
+        counter = setInterval(count, 1000); //counterの値を1000ミリ秒に一度count関数（自作）で変化させる。
+    }
+
+    stop.onclick = function () {
+        toggle();  //下の自作関数
+        clearInterval(counter);
+    }
+
+    reset.onclick = function () {
+        time = 180; //初期値に戻す。
+        sec.innerHTML = time % 60;
+        min.innerHTML = Math.floor(time / 60);  //60で割ったときの切り上げを埋め込む。
+    }
+
+    function toggle() {
+        if (start.disabled) {
+            start.disabled = false; //startボタンが押せない、を否定。
+            stop.disabled = true;   //stopボタンが押せない、を肯定。
+        } else {
+            start.disabled = true
+            stop.disabled = false;
+        }
+    }
+
+    function count() {
+        if (time === 0) {
+            sec.innerHTML = 0;
+            min.innerHTML = 0;
+            toggle();
+            alert("3分経過しました。");
+            clearInterval(counter); //counterの変化を停止。
+        } else {
+            time -= 1;  //timeの値を-1する。
+            sec.innerHTML = time % 60;
+            min.innerHTML = Math.floor(time / 60);
+        }
+    }
+
+}
+    </pre>
+</body>
+
+</html>

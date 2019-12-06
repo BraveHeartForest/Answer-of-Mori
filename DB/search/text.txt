@@ -1,0 +1,30 @@
+﻿https://qiita.com/4cres/items/26154314959dcccbfd34
+
+https://www.atmarkit.co.jp/ait/articles/1507/10/news028_2.html
+
+https://www.flatflag.nir87.com/select-932	PHPとMySQLのSELECT文でデータ取得(PDO)
+
+https://www.sejuku.net/blog/82410
+
+https://techacademy.jp/magazine/5120
+
+https://26gram.com/mysql-like
+
+https://www.flatflag.nir87.com/update-950
+
+https://www.php.net/manual/ja/function.session-destroy.php	セッションの破棄
+
+https://www.jiichan.com/programming/programming.php?lang=php&no=06	urlのパラメータに配列を使用する
+
+https://wepicks.net/phpref-get/	PHP $_GET（ゲット変数）のすべて！【初心者向け基本】
+
+https://www.javadrive.jp/php/for/index9.html	foreach文でキーと値を取り出す
+
+https://www.javadrive.jp/php/mysql/index6.html	データの取得(SELECT)
+
+https://wepicks.net/phpref-array/	PHPの配列をマスターしよう！【基本から初心者向け】
+
+http://suipedia.net/blog/php/likesearch/	【php】LIKE検索のやり方【MySQL】
+
+https://so-kai-app.sakura.ne.jp/blog/1527/2016/12/14/	 「部分一致」と「中間一致」の違い
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        住所
+    </title>
+    <link rel="stylesheet" href="addressAPI.css">
+    <script src="./addressAPI.js"></script>
+</head>
+
+<body>
+    <button type="button" name="fire" onclick="disp()">郵便番号を入力</button>
+    <div id="info">正しく入力された場合は以下にそれが表示される予定です。</div>
+    <ul>
+        <li id="pref"></li>
+        <li id="address"></li>
+        <li id="city"></li>
+        <li id="town"></li>
+        <li id="fulladdress"></li>
+    </ul>
+
+    <!-- ul要素が1つだけだとjsで配列をfor文で回した意味が無いので、下に付け加えました。 -->
+    <ul>
+        <li><button disabled="disabled">1</button></li>
+        <li><button disabled="disabled">2</button></li>
+        <li><button disabled="disabled">3</button></li>
+        <li><button disabled="disabled">4</button></li>
+        <li><button disabled="disabled">5</button></li>
+    </ul>
+
+    <input type="text" name="form" id="enter">
+    <br>
+    <input type="button" value="郵便番号を入力" onclick="disp2()">
+    <ol>
+        <li class="num">0</li>
+        <li class="num">1</li>
+        <li class="num">2</li>
+        <li class="num">3</li>
+        <li class="num">4</li>
+        <li class="num">5</li>
+    </ol>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>
+		ajax_test
+	</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+	<div>
+		<h1>Configuration</h1>
+		<p>
+			<label for="age">年齢：</label>
+			<input type="text" id="age" value="24"><br>
+			<label for="job">職業：</label>
+			<input type="text" id="job" value="楽聖"><br>
+			<input type="button" id="execute" value="送信">
+		</p>
+		<h1>Result</h1>
+		<p>
+			<label for="result">可否：</label>
+			<input type="text" id="result" value=""><br>
+			<label for="detail">内容：</label>
+			<input type="text" id="detail" value=""><br>
+		</p>
+		<script src="./js/ajax3.js"></script>
+	</div>
+	<div>
+		<h1>html部分</h1>
+		<pre>
+&lt;div&gt;
+&lt;h1&gt;Configuration&lt;/h1&gt;
+&lt;p&gt;
+	&lt;label for=&quot;age&quot;&gt;年齢：&lt;/label&gt;
+	&lt;input type=&quot;text&quot; id=&quot;age&quot; value=&quot;24&quot;&gt;&lt;br&gt;
+	&lt;label for=&quot;job&quot;&gt;職業：&lt;/label&gt;
+	&lt;input type=&quot;text&quot; id=&quot;job&quot; value=&quot;楽聖&quot;&gt;&lt;br&gt;
+	&lt;input type=&quot;button&quot; id=&quot;execute&quot; value=&quot;送信&quot;&gt;
+&lt;/p&gt;
+&lt;h1&gt;Result&lt;/h1&gt;
+&lt;p&gt;
+	&lt;label for=&quot;result&quot;&gt;可否：&lt;/label&gt;
+	&lt;input type=&quot;text&quot; id=&quot;result&quot; value=&quot;&quot;&gt;&lt;br&gt;
+	&lt;label for=&quot;detail&quot;&gt;内容：&lt;/label&gt;
+	&lt;input type=&quot;text&quot; id=&quot;detail&quot; value=&quot;&quot;&gt;&lt;br&gt;
+&lt;/p&gt;
+&lt;script src=&quot;./js/ajax3.js&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+		</pre>
+		<h1>
+			ajax3.js
+		</h1>
+		<pre>
+/*エラーメッセージの生成*/
+function errorHandler(args) {
+	var error;
+	//errorThrownはHTTP通信に成功したときだけ空文字列以外の値が定義される。
+	if (args[2]) {
+		try {
+			//JSONとしてパースが成功かつ{&quot;error&quot;:&quot;...&quot;}という構造であった時
+			//(undefinedが代入されるのを防ぐためにtoStringメソッドを使用)
+			error = JSON.parse(args[0].responseText).error.toString();
+		} catch (e) {
+			//パースに失敗した、若しくは期待する構造でなかったとき
+			//(PHP側にエラーがあったときにもデバッグしやすいようにレスポンスをテキストとして返す)
+			error = 'ParseError(' + args[2] + '):' + args[0].responseText;
+		}
+	} else {
+		//通信そのものに失敗したとき
+		error = args[1] + '(HTTP request failed)';
+	}
+	return error;
+}
+
+
+//DOMを全て読み込んだあとに実行される。
+$(function () {
+	//[#execute]をクリックした時に発動。
+	$('#execute').click(function () {
+		//Ajax通信を開始する。
+		$.ajax({
+			url: 'api.php',
+			type: 'POST',	//getかpostを指定（デフォルトではget)
+			dataType: 'json',	//[json]を指定するとresponseがJSONとしてパースされたオブジェクト
+			data: {	//送信データを指定(getの場合は自動的にurlの後ろにクエリとして付加される)
+				age: $('#age').val(),
+				job: $('#job').val(),
+			},	//ここまでがpostで送信するデータのnameとvalue。
+		})	//ここまでが$.ajaxでまとめられた部分
+			//+ステータスコードは正常で、dataTypeで定義したようにパースできたとき
+			.done(function (response) {
+				$('#result').val('成功');
+				$('#detail').val(response.data);
+			})
+			//+サーバからステータスコード400以上が返ってきたとき。
+			//+ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
+			//+通信に失敗したとき
+			.fail(function () {
+				$('#result').val('失敗');
+				$('#detail').val(errorHandler(arguments));
+			});
+	});
+});
+		</pre>
+		<h1>
+			api.php
+		</h1>
+		<pre>
+&lt;?php
+// Content-TypeをJSONに指定する
+header('Content-Type: application/json');
+
+//$_POST['age'],$_POST['job']をエラーを出さないように文字列として安全に展開する
+$age=(string)filter_input(INPUT_POST,'age');
+$job=(string)filter_input(INPUT_POST,'job');
+
+//整合性チェック
+if($age==='' || $job===''){
+	$error=&quot;年齢不詳もしくは職業不詳です。&quot;;
+}else if(!ctype_digit($age)){
+	$error=&quot;年齢は自然数で頼むぞォ～。&quot;;
+}else if(($age =(int)$age)&gt;100){
+	$error=&quot;生きすぎィ！&quot;;
+}
+
+if(!isset($error)) {
+	//正常時は「200 OK」で{&quot;data&quot;:&quot;24歳、学生です。&quot;}のように返す。
+	$data = &quot;{$age}歳、{$job}です。&quot;;
+	print json_encode(compact('data'));
+}else{
+	//失敗時は「400 Bad Request」で{&quot;error&quot;:&quot;...&quot;}のように返す。
+	http_response_code(400);
+	print json_encode(compact('error'));
+}
+		</pre>
+	</div>
+</body>
+
+<script>
+</script>
+
+</html>

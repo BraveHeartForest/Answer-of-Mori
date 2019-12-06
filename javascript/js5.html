@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		サンプル
+	</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		function stringCheck() {
+			let str = sentence.value;
+			str = (str == null) ? "" : str;	//strがnullであれば空白を代入、そうでないならstrをそのまま代入。
+			let str_length = str.length;	//sentence.lengthだと失敗したsentence.value.lengthで成功。
+			let str_bool;
+			if (str.match(/^[A-Za-z0-9]*$/)) {
+				str_bool = "半角英数字だけで構成されています。";
+			} else {
+				str_bool = "半角英数字以外が含まれています。"
+			}
+			document.getElementById("result").innerHTML = "文字列：" + str + "<br>文字列の長さ：" + str_length + "<br>" + str_bool;
+		}
+	</script>
+	<h1>DOM操作、フォーム</h1>
+	<h2>関数を用い、文字列に応じた結果を画面に表示しなさい。関数名はstringCheckとし与えられた文字列の長さ及び半角英数字か否かの表示処理を行うものとする。</h2>
+	<input type="text" id="sentence">
+	<br>
+	<input type="button" value="stringCheckを実行する。" onclick="stringCheck()">
+	<div id="result"></div>
+</body>
+
+</html>
